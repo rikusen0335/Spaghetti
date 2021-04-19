@@ -12,6 +12,12 @@ defmodule DiscordBot do
     Command.handle(message)
   end
 
+  def handle_event({:VOICE_STATE_UPDATE, message, state}) do
+    IO.inspect(message)
+    IO.inspect("")
+    IO.inspect(Api.get_channel(message.channel_id))
+  end
+
   def handle_event(_event) do
     :noop
   end
